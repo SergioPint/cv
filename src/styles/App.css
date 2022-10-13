@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+html {
+  background: rgb(255, 255, 255);
+  font-size: 16px;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+:root {
+  --primary: rgb(73, 174, 218);
+  --secondary: rgb(239 239 239);
+  --cta: rgb(231, 231, 231);
+}
+
+.header {
+  background-color: var(--primary);
+  color: white;
+  height: 50px;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.header svg {
+  margin-right: 5px;
+}
+
+.content {
+  display: flex;
+}
+
+.forms {
+  width: 50%;
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
+}
+
+.item {
+  position: relative;
+  justify-content: space-between;
+  padding: 10px 15px 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  background-color: var(--secondary);
+}
+
+.education h2 {
+  margin-top: 15px;
+}
+
+.item h3 {
+  color: rgb(93, 92, 92);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+button.addItem {
+  background-color: var(--primary);
+  color: white;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+button.addItem svg {
+  margin-right: 3px;
+}
+
+.deleteItem {
+  color: rgb(142, 142, 142);
+  border: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.deleteItem svg {
+  margin-right: 3px;
+  color: rgb(142, 142, 142);
+  height: 15px;
+}
+
+/* Preview */
+
+.preview {
+  background-color: white;
+  display: flex;
+  width: 50%;
+  height: calc(100vh - 50px);
+  box-shadow: inset 0px 0px 8px 1px #0000002e;
+}
+
+.preview-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.preview-details {
+  padding: 10px 0;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+.preview-main {
+  margin: 20px;
+  width: 70%;
+}
+
+.preview-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.date {
+  min-width: 130px;
+  max-width: 130px;
+  text-align: right;
+  font-size: 0.9rem;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+.date span {
+  font-weight: 200;
+}
+
+div.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgb(233, 233, 233) 0 0);
+  background-size: 5px 100%; /* Control the width here*/
+  background-repeat: no-repeat;
+  background-position: 50%;
+  align-self: stretch;
+}
+.preview-education div:last-child div.bubble,
+.preview-experience div:last-child div.bubble {
+  background: linear-gradient(rgb(233, 233, 233), white);
+  background-size: 5px 100%; /* Control the width here*/
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.bubble > span {
+  margin: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: var(--primary);
+  border-radius: 100%;
+  border: 3px solid white;
+  display: block;
+}
+
+.preview-title .bubble > span {
+  margin: 0 0 10px 0;
+  height: 40px;
+  width: 40px;
+}
+
+.preview-title h2 {
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.preview-title .placeholder {
+  min-width: 130px;
+  max-width: 130px;
+}
+
+.degree,
+.role {
+  font-weight: bold;
+}
+
+.company,
+.uni {
+  font-style: italic;
+}
+
+.preview-education {
+  padding-top: 15px;
+}
+
+.preview-main .summary {
+  margin-bottom: 30px;
+}
+
+.preview-main .name {
+  font-size: 2rem;
+  color: rgb(112, 112, 112);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.preview-main .name span {
+  font-weight: 400;
+}
+
+.preview-main h3 {
+  font-size: 1.1rem;
+  color: rgb(112, 112, 112);
+  font-weight: bold;
+}
+
+.preview-sidebar {
+  padding: 25px;
+  color: rgb(112, 112, 112);
+  background-color: var(--secondary);
+  width: 30%;
+}
+
+.personal-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.personal-item .icon {
+  background-color: var(--primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  font-size: 1.3rem;
+}
+
+/* mobile styling */
+@media all and (max-width: 767px) {
+  .content,
+  .preview {
+    flex-direction: column;
+  }
+
+  .forms,
+  .preview {
+    width: auto;
+    height: 100%;
+    overflow-y: unset;
+  }
+
+  .preview {
+    box-shadow: none;
+    border-top: 4px solid #0000002e;
+  }
+
+  .preview::before {
+    content: 'Preview';
+    padding-right: 5px;
+    text-align: right;
+    color: rgb(114, 114, 114);
+    font-weight: bold;
+  }
+
+  .preview-main,
+  .preview-sidebar {
+    width: auto;
+    margin: 5px;
+  }
+}
